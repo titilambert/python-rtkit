@@ -152,7 +152,7 @@ def _content_encode(value):
     """
     if 'Text' in value:
         value['Text'] = '\n '.join(value['Text'].splitlines())
-    return '\n'.join(['{0}: {1}'.format(k, v) for k, v in value.iteritems()])
+    return '\n'.join(['{0}: {1}'.format(urllib.quote(k), urllib.quote(v)) for k, v in value.iteritems()])
 
 
 def url_quote(s, charset='utf-8', safe='/:'):
